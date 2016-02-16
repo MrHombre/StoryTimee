@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
 	before_action :authenticate_user!,  only: [:new, :create]
 
 	def index
-		@stories = Story.all
+		@stories = Story.all.order("created_at DESC")
 	end
 
 	def new
