@@ -36,6 +36,14 @@ class StoriesController < ApplicationController
 		redirect_to :back
 	end
 
+	def search
+		if params[:search].blank?
+			@stories = Story.all
+		else
+			@stories = Story.search(params)
+		end
+	end
+
 	private
 
 	def story_params

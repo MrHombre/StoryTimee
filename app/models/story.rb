@@ -12,4 +12,9 @@ class Story < ActiveRecord::Base
 	def self.random
 		limit(5).order("RANDOM()")
 	end
+
+	def self.search
+		stories = Search.where("body LIKE ?", "%#{params[:search]}%") if params[:search].present?
+		stories
+	end
 end
