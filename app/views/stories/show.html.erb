@@ -20,7 +20,6 @@
         <h4>Leave a Comment:</h4>
         <%= form_for [@story, Comment.new] do |f| %>
           <div class="form-group">
-            <%= f.label :body %>
             <%= f.text_area :body, class: "form-control", rows: 3 %>
             <%= f.submit "Submit", class: "btn btn-primary" %>
           </div>

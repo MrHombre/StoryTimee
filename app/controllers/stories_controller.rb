@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
 	before_action :authenticate_user!,  only: [:new, :create, :upvote, :downvote]
+	before_action :find_story, only: [:edit, :update, :show, :upvote, :downvote]
 
 	def index
 		@stories = Story.all.order(id: :desc).page(params[:page]).per(5)
@@ -21,7 +22,7 @@ class StoriesController < ApplicationController
 	end
 
 	def show
-		@story = Story.find(params[:id])
+		@comments = Comment.where(story_id: params[:id])
 	end
 
 	def upvote
