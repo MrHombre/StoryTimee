@@ -16,6 +16,8 @@
            <%= link_to "Hate it", dislike_story_path(story), method: :put, class: "btn btn-warning btn-xs" %><span class="text-warning"> (<%= story.get_downvotes.size %>)</span>
           <a href="#" class="btn btn-link btn-xs">Comments</a><small><em>(300)</em></small>
           <span class="text-muted pull-right"><small>Created by: <%= story.user.name %> on <%= story.created_at.strftime('%B %d, %Y at %l:%M %p') %></small></span>
+          <br>
+          <span class="text-muted pull-right"><small>Category: <%=story.category.name %></small></span>
         </div>
       <% end %>
     </div>
@@ -25,7 +27,7 @@
         <div class="panel-heading text-center">Categories</div>
           <ul class="list-group">
             <% Category.all.each do |category| %>
-              <li class="list-group-item"><%= category.name %></li>
+              <li class="list-group-item"><%= link_to category.name, category_path(category) %></li>
             <% end %>
           </ul>
       </div>
