@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   root 'stories#index'
 
+  get "category/:id", to: "categories#show", as: "category"
   get "/topstories", to: "pages#topstories", as: "topstories"
   get "/randomstories", to: "pages#randomstories", as: "randomstories"
 end
