@@ -17,12 +17,9 @@
           <a href="#" class="btn btn-link btn-xs">Comments</a><small><em>(300)</em></small>
           <span class="text-muted pull-right"><small>Created by: <%= story.user.name %> on <%= story.created_at.strftime('%B %d, %Y at %l:%M %p') %></small></span>
           <br>
-          <span class="text-muted pull-right"><small>Category: <%= story.category.name %></small></span>
+          <span class="text-muted pull-right"><small>Category: <%=story.category.name %></small></span>
         </div>
       <% end %>
-      <div class="container">
-        <%= paginate @stories %>
-      </div>
     </div>
 
     <div class="col-md-4 col-sm-12">

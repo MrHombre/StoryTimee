@@ -3,6 +3,8 @@ class Story < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
 
+	
+
 	acts_as_votable
 
 	def self.best_story
@@ -13,8 +15,8 @@ class Story < ActiveRecord::Base
 		limit(5).order("RANDOM()")
 	end
 
-	def self.search
-		stories = Search.where("body LIKE ?", "%#{params[:search]}%") if params[:search].present?
-		stories
-	end
+	def self.search(params)
+    	stories = Story.where("body LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    	stories
+  end
 end
