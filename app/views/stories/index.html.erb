@@ -15,7 +15,7 @@
           <%= link_to "Loved it", like_story_path(story), method: :put, class: "btn btn-warning btn-xs" %><span class="text-warning"> (<%= story.get_upvotes.size %>)</span>
            <%= link_to "Hate it", dislike_story_path(story), method: :put, class: "btn btn-warning btn-xs" %><span class="text-warning"> (<%= story.get_downvotes.size %>)</span>
           <a href="#" class="btn btn-link btn-xs">Comments</a><small><em>(300)</em></small>
-          <span class="text-muted pull-right"><small>Created by: <%= story.user.name %> on <%= story.created_at.strftime('%B %d, %Y at %l:%M %p') %><small></span>
+          <span class="text-muted pull-right"><small>Created by: <%= story.user.name %> on <%= story.created_at.strftime('%B %d, %Y at %l:%M %p') %></small></span>
         </div>
       <% end %>
       <ul class="pagination pull-right">
