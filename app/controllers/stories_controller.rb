@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
 	before_action :authenticate_user!,  only: [:new, :create, :upvote, :downvote]
 
 	def index
-		@stories = Story.all.order("created_at DESC")
+		@stories = Story.all.order(id: :desc).page(params[:page]).per(5)
 	end
 
 	def new
