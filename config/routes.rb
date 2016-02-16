@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'stories#index'
+
+  get "/topstories", to: "pages#topstories", as: "topstories"
+  get "/randomstories", to: "pages#randomstories", as: "randomstories"
 end
